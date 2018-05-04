@@ -11,6 +11,7 @@ from make_rankings import make_indicator
 
 app = Flask(__name__)
 
+port = int(environ.get('PORT', 33507))
 
 if (environ.get('MONGODB_URI')):
 	mongo_uri = environ.get('MONGODB_URI')
@@ -76,4 +77,4 @@ def add_name():
   return jsonify({'result' : "success"})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=port)
